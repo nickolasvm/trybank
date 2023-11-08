@@ -22,7 +22,7 @@ Before using Trybank, make sure you have the following prerequisites installed o
 1. Clone the Trybank repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/trybank.git
+   git clone git@github.com:nickolasvm/trybank.git
 
 2. Navigate to the project directory:
 
