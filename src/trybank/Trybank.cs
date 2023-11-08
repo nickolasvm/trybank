@@ -38,18 +38,22 @@ public class TrybankLib
 
         try
         {
-            for (int i = 0; i < registeredAccounts; i += 1)
+            for (int i = 0; i < registeredAccounts + 1; i += 1)
             {
+                //  Check if account already exists
                 if (Bank[i, 0] == number & Bank[i, 1] == agency)
                 {
                     throw new ArgumentException("A conta já está sendo usada!");
                 }
 
-                // Register the new account
-                Bank[i, 0] = number;
-                Bank[i, 1] = agency;
-                Bank[i, 2] = pass;
-                Bank[i, 3] = 0;
+                //  Check if position is empty
+                if (Bank[i, 0] == 0 & Bank[i, 1] == 0)
+                {
+                    Bank[i, 0] = number;
+                    Bank[i, 1] = agency;
+                    Bank[i, 2] = pass;
+                    Bank[i, 3] = 0;
+                }
             }
             registeredAccounts += 1;
         }
@@ -171,8 +175,32 @@ public class TrybankLib
     // 7. Construa a funcionalidade de transferir dinheiro entre contas
     public void Transfer(int destinationNumber, int destinationAgency, int value)
     {
-        throw new NotImplementedException();
+        try
+        {
+            if (!Logged) throw new AccessViolationException("Usuário não está logado");
+
+            if (Bank[loggedUser, 3] < value) throw new InvalidOperationException("Saldo insuficiente");
+
+            for (int i = 0; i < registeredAccounts; i += 1)
+            {
+                if (Bank[i, 0] == destinationNumber & Bank[i, 1] == destinationAgency)
+                {
+                    Bank[loggedUser, 3] -= value;
+                    Bank[i, 3] += value;
+
+                    break;
+                }
+            }
+        }
+        catch (AccessViolationException ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
+        catch (InvalidOperationException ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
     }
-
-
 }
