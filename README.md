@@ -27,15 +27,20 @@ Before using Trybank, make sure you have the following prerequisites installed o
 2. Navigate to the project directory:
 
    ```bash
-   cd trybank/src
+   cd trybank/src/trybank
 
 3. Install necessary dependencies:
 
    ```bash
    dotnet restore
 
-4. Build and run the project:
+4. Build the project:
 
    ```bash
    dotnet build
+   dotnet run
+
+5. Run the project:
+
+   ```bash
    dotnet run
