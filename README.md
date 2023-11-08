@@ -1,4 +1,4 @@
-# Trybank - A C# Cnsole Bank Application
+# Trybank - A C# Console Bank Application
 
 Trybank is a C# console application that allows users to register, log in, and perform fund transfers between accounts. 
 
