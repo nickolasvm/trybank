@@ -148,7 +148,24 @@ public class TrybankLib
     // 6. Construa a funcionalidade de sacar dinheiro
     public void Withdraw(int value)
     {
-        throw new NotImplementedException();
+        try
+        {
+            if (!Logged) throw new AccessViolationException("Usuário não está logado");
+
+            if (Bank[loggedUser, 3] < value) throw new InvalidOperationException("Saldo insuficiente");
+
+            Bank[loggedUser, 3] -= value;
+        }
+        catch (AccessViolationException ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
+        catch (InvalidOperationException ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
     }
 
     // 7. Construa a funcionalidade de transferir dinheiro entre contas
