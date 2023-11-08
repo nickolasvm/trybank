@@ -11,8 +11,9 @@ class Program
 
         try
         {
-            // Registrando uma nova conta
+            // Registrando duas novas conta
             bank.RegisterAccount(12345, 1001, 1234);
+            bank.RegisterAccount(54321, 1002, 5678);
 
             // Fazendo login
             bank.Login(12345, 1001, 1234);
