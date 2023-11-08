@@ -27,10 +27,10 @@ public class TrybankLib
 
         if (registeredAccounts == 0)
         {
-            Bank[registeredAccounts, 0] = number;
-            Bank[registeredAccounts, 1] = agency;
-            Bank[registeredAccounts, 2] = pass;
-            Bank[registeredAccounts, 3] = 0;
+            Bank[0, 0] = number;
+            Bank[0, 1] = agency;
+            Bank[0, 2] = pass;
+            Bank[0, 3] = 0;
             registeredAccounts = 1;
 
             return;
@@ -46,10 +46,10 @@ public class TrybankLib
                 }
 
                 // Register the new account
-                Bank[registeredAccounts, 0] = number;
-                Bank[registeredAccounts, 1] = agency;
-                Bank[registeredAccounts, 2] = pass;
-                Bank[registeredAccounts, 3] = 0;
+                Bank[i, 0] = number;
+                Bank[i, 1] = agency;
+                Bank[i, 2] = pass;
+                Bank[i, 3] = 0;
             }
             registeredAccounts += 1;
         }
@@ -63,7 +63,37 @@ public class TrybankLib
     // 2. Construa a funcionalidade de fazer Login
     public void Login(int number, int agency, int pass)
     {
-        throw new NotImplementedException();
+        try
+        {
+            if (Logged) throw new AccessViolationException("Usuário já está logado");
+
+            for (int i = 0; i < registeredAccounts; i += 1)
+            {
+                if (Bank[i, 0] == number & Bank[i, 1] == agency)
+                {
+                    if (Bank[i, 2] == pass)
+                    {
+                        Logged = !Logged;
+                        loggedUser = i;
+                        return;
+                    }
+
+                    throw new ArgumentException("Senha incorreta");
+                }
+            }
+
+            throw new ArgumentException("Agência + Conta não encontrada");
+        }
+        catch (AccessViolationException ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
     }
 
     // 3. Construa a funcionalidade de fazer Logout
