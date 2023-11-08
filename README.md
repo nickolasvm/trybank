@@ -1,10 +1,41 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Trybank - A C# Cnsole Bank Application
+
+Trybank is a C# console application that allows users to register, log in, and perform fund transfers between accounts. 
+
+## Features
+
+- User Registration: Create a new account by providing necessary information such as account number, agency and password.
+- User Login: Access your account by providing valid credentials.
+- Fund Transfer: Transfer funds between user accounts within the Trybank application.
+
+## Getting Started
+
+### Prerequisites
+
+Before using Trybank, make sure you have the following prerequisites installed on your system:
+
+- C# Development Environment
+- .NET Framework
+
+### Installation
+
+1. Clone the Trybank repository to your local machine:
+
+   ```bash
+   git clone https://github.com/yourusername/trybank.git
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd trybank/src
+
+3. Install necessary dependencies:
+
+   ```bash
+   dotnet restore
+
+4. Build and run the project:
+
+   ```bash
+   dotnet build
+   dotnet run
