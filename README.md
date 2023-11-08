@@ -38,7 +38,6 @@ Before using Trybank, make sure you have the following prerequisites installed o
 
    ```bash
    dotnet build
-   dotnet run
 
 5. Run the project:
 
